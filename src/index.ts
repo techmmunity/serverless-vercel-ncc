@@ -1,4 +1,4 @@
-import { beforeDeploy } from "hooks/before-deploy";
+import { createArtifacts } from "hooks/create-artifacts";
 import Serverless, { Options } from "serverless";
 
 class ServerlessVercelNcc {
@@ -8,8 +8,11 @@ class ServerlessVercelNcc {
 		public readonly serverless: Serverless,
 		public readonly options: Options,
 	) {
+		console.log("~~~~~Plugin loaded~~~");
+
 		this.hooks = {
-			"before:deploy:deploy": beforeDeploy,
+			"before:deploy:deploy": createArtifacts,
+			"before:package:package": createArtifacts,
 		};
 	}
 }

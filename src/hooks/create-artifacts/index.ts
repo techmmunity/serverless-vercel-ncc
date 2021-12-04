@@ -49,7 +49,7 @@ const getHandlerFile = (handler: any) => {
 
 const CONCURRENCY = 3;
 
-export const beforeDeploy = async (serverless: Serverless) => {
+export const createArtifacts = async (serverless: Serverless) => {
 	const packageJson = require(getRootPath("package.json"));
 
 	// TODO Remove
