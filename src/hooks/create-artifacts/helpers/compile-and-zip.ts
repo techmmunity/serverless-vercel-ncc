@@ -19,15 +19,19 @@ interface CompileAndZipParams {
  *
  */
 
-const getExternalModules = () => {
-	const packageJson = require(getRootPath("package.json"));
+const getExternalModules = (context: Context) => {
+	if (context.opt?.excludeDependencies) {
+		const packageJson = require(getRootPath("package.json"));
 
-	const externals = [
-		...Object.keys(packageJson.dependencies),
-		...Object.keys(packageJson.devDependencies),
-	];
+		const externals = [
+			...Object.keys(packageJson.dependencies),
+			...Object.keys(packageJson.devDependencies),
+		];
 
-	return externals;
+		return externals;
+	}
+
+	return [];
 };
 
 /**
@@ -58,7 +62,7 @@ export const compileAndZip = ({
 	context,
 	serverlessFolderPath,
 }: CompileAndZipParams) => {
-	const externals = getExternalModules();
+	const externals = getExternalModules(context);
 
 	const func = context.serverless.service.functions[
 		funcName
@@ -76,7 +80,8 @@ export const compileAndZip = ({
 			content: code,
 			outputPath: serverlessFolderPath,
 		}).then(() => {
-			// Only sets the artifact if successfully writes the zip file
+			// Only sets the new values if successfully writes the zip file
+			func.handler = `${funcName}.js`;
 			func.package = {
 				artifact: `${serverlessFolderPath}/${funcName}.zip`,
 			};

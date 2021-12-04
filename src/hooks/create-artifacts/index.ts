@@ -15,8 +15,7 @@ export const createArtifacts = async (context: Context) => {
 
 	createServerlessFolder(serverlessFolderPath);
 
-	const concurrency =
-		context.serverless.service.custom?.ncc?.concurrency || CONCURRENCY;
+	const concurrency = context.opt?.concurrency || CONCURRENCY;
 
 	const chunks = chunk(functions, concurrency);
 
