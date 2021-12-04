@@ -11,7 +11,7 @@ export const writeZip = ({ fileName, content, outputPath }: WriteParams) =>
 	new Promise((resolve, reject) => {
 		const zip = new JSZip();
 
-		zip.file(`${fileName}.js`, content);
+		zip.file("index.js", content);
 
 		zip
 			.generateNodeStream({ type: "nodebuffer", streamFiles: true })

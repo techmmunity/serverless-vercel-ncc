@@ -81,7 +81,9 @@ export const compileAndZip = ({
 			outputPath: serverlessFolderPath,
 		}).then(() => {
 			// Only sets the new values if successfully writes the zip file
-			func.handler = `${funcName}.js`;
+			const module = func.handler.split(".").pop();
+
+			func.handler = `./index${module ? `.${module}` : ""}`;
 			func.package = {
 				artifact: `${serverlessFolderPath}/${funcName}.zip`,
 			};
