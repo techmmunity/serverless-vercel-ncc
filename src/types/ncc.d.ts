@@ -14,5 +14,5 @@ declare module "@vercel/ncc" {
 	const compiler: (path: string, options: Options) => Promise<Output>;
 
 	// eslint-disable-next-line import/no-default-export
-	export default compiler;
+	export = compiler;
 }

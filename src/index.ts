@@ -8,11 +8,9 @@ class ServerlessVercelNcc {
 		public readonly serverless: Serverless,
 		public readonly options: Options,
 	) {
-		console.log("~~~~~Plugin loaded~~~");
-
 		this.hooks = {
-			"before:deploy:deploy": createArtifacts,
-			"before:package:package": createArtifacts,
+			"before:package:createDeploymentArtifacts": () => createArtifacts(this),
+			"before:deploy:function:packageFunction": () => createArtifacts(this),
 		};
 	}
 }

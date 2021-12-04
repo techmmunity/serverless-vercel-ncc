@@ -1,5 +1,5 @@
-import fs from "fs";
-import JSZip from "jszip";
+import { createWriteStream } from "fs";
+import * as JSZip from "jszip";
 
 interface WriteParams {
 	fileName: string;
@@ -11,11 +11,11 @@ export const writeZip = ({ fileName, content, outputPath }: WriteParams) =>
 	new Promise((resolve, reject) => {
 		const zip = new JSZip();
 
-		zip.file(`${fileName}.ts`, content);
+		zip.file(`${fileName}.js`, content);
 
 		zip
 			.generateNodeStream({ type: "nodebuffer", streamFiles: true })
-			.pipe(fs.createWriteStream(`${outputPath}/${fileName}.zip`))
+			.pipe(createWriteStream(`${outputPath}/${fileName}.zip`))
 			.on("finish", () => resolve(undefined))
 			.on("error", reject);
 	});
