@@ -28,7 +28,7 @@
 
 </div>
 
-> Description of the package
+A serverless plugin to work with @vercel/ncc.
 
 ## Install
 
@@ -46,24 +46,6 @@ npm i serverless-vercel-ncc
 
 ## Usage
 
-With TypeScript:
-
-```ts
-
-```
-
-With JavaScript:
-
-```js
-
-```
-
-## How to contribute?
-
-All the details about contributing to the project are [described here](https://github.com/techmmunity/base-project-services/blob/master/CONTRIBUTING.md).
-
-## Documentation
-
 ```yml
 # serverless.yml
 
@@ -71,4 +53,12 @@ custom:
 	ncc:
 		concurrency: 3 # Quantity of files being compiled at the same time
 		excludeDependencies: false # Exclude dependencies to use lambda layers
+		minify: false # @vercel/ncc option
+		sourceMap: false # @vercel/ncc option
+		sourceMapRegister: true # @vercel/ncc option
+		# Extra @vercel/ncc options aren't accepted
 ```
+
+## How to contribute?
+
+All the details about contributing to the project are [described here](https://github.com/techmmunity/base-project-services/blob/master/CONTRIBUTING.md).

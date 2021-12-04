@@ -41,14 +41,17 @@ const getExternalModules = (context: Context) => {
  */
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const getOriginalFilePath = (handler: any) => {
+const getHandlerPath = (handler: any) => {
 	// Check if handler is a well-formed path based handler.
 	const handlerEntries = /(.*)\..*?$/.exec(handler);
 
 	// Get the file path
 	const [, handlerEntry] = handlerEntries!;
 
-	return getRootPath(`${handlerEntry}.ts`);
+	return {
+		rootPath: getRootPath(`${handlerEntry}.ts`),
+		path: handlerEntry,
+	};
 };
 
 /**
@@ -68,22 +71,22 @@ export const compileAndZip = ({
 		funcName
 	] as FunctionDefinitionHandler;
 
-	const originalFilePath = getOriginalFilePath(func.handler);
+	const { rootPath, path } = getHandlerPath(func.handler);
 
-	return Ncc(originalFilePath, {
+	return Ncc(rootPath, {
 		externals,
 		quiet: true,
-		minify: true,
+		minify: context.opt?.minify,
+		sourceMap: context.opt?.sourceMap,
+		sourceMapRegister: context.opt?.sourceMapRegister,
 	}).then(({ code }) =>
 		writeZip({
-			fileName: funcName,
+			filePath: path,
+			zipName: funcName,
 			content: code,
 			outputPath: serverlessFolderPath,
 		}).then(() => {
 			// Only sets the new values if successfully writes the zip file
-			const module = func.handler.split(".").pop();
-
-			func.handler = `./index${module ? `.${module}` : ""}`;
 			func.package = {
 				artifact: `${serverlessFolderPath}/${funcName}.zip`,
 			};
