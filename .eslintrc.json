@@ -4,5 +4,9 @@
 		"@techmmunity/eslint-config/common",
 		"@techmmunity/eslint-config/typescript",
 		"@techmmunity/eslint-config/jest"
-	]
+	],
+	"rules": {
+		"no-console": "off",
+		"no-warning-comments": "off"
+	}
 }
