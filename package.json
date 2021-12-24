@@ -1,11 +1,11 @@
 {
 	"name": "serverless-vercel-ncc",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
 	"author": "Techmmunity",
-	"description": "Description",
+	"description": "Serverless Framework plugin to work with @vercel/ncc",
 	"homepage": "https://github.com/techmmunity/serverless-vercel-ncc#readme",
 	"bugs": {
 		"url": "https://github.com/techmmunity/serverless-vercel-ncc/issues"
@@ -15,8 +15,14 @@
 		"url": "git+https://github.com/techmmunity/serverless-vercel-ncc.git"
 	},
 	"keywords": [
-		"package",
-		"keywords"
+		"serverless",
+		"serverless framework",
+		"serverless-framework",
+		"serverless plugin",
+		"serverless-plugin",
+		"@vercel/ncc",
+		"webpack",
+		"minify"
 	],
 	"devDependencies": {
 		"@techmmunity/eslint-config": "^5.1.3",

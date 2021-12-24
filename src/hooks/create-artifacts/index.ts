@@ -1,12 +1,14 @@
 /* eslint-disable no-await-in-loop */
 
 import { chunk, getRootPath } from "@techmmunity/utils";
+
 import { Context } from "types/context";
+
+import { DEFAULT_CONCURRENCY } from "config";
+
 import { getAllNodeFunctions } from "./helpers/get-all-node-functions";
 import { createServerlessFolder } from "./helpers/create-serverless-folder";
 import { compileAndZip } from "./helpers/compile-and-zip";
-
-const CONCURRENCY = 3;
 
 export const createArtifacts = async (context: Context) => {
 	const functions = getAllNodeFunctions(context);
@@ -15,7 +17,7 @@ export const createArtifacts = async (context: Context) => {
 
 	createServerlessFolder(serverlessFolderPath);
 
-	const concurrency = context.opt?.concurrency || CONCURRENCY;
+	const concurrency = context.opt?.concurrency || DEFAULT_CONCURRENCY;
 
 	const chunks = chunk(functions, concurrency);
 
