@@ -20,18 +20,19 @@ interface CompileAndZipParams {
  */
 
 const getExternalModules = (context: Context) => {
+	const externals = context.opt?.dependenciesToExclude || [];
+
 	if (context.opt?.excludeDependencies) {
 		const packageJson = require(getRootPath("package.json"));
 
-		const externals = [
+		return [
+			...externals,
 			...Object.keys(packageJson.dependencies),
 			...Object.keys(packageJson.devDependencies),
 		];
-
-		return externals;
 	}
 
-	return [];
+	return externals;
 };
 
 /**

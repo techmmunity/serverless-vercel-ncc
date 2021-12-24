@@ -6,6 +6,7 @@ interface Options {
 	minify?: boolean;
 	sourceMap?: boolean;
 	sourceMapRegister?: boolean;
+	dependenciesToExclude?: Array<string>;
 }
 
 export interface Context {
