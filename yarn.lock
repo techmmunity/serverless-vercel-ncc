@@ -727,10 +727,10 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.4.1.tgz#e1303048d5389563e130f5bdd89d37a99acb75eb"
   integrity sha512-Fo79ojj3vdEZOHg3wR9ksAMRz4P3S5fDB5e/YWZiFnyFQI1WY2Vftu9XoXVVtJfxB7Bpce/QTqWSSntkz2Znrw==
 
-"@types/serverless@^1.78.39":
-  version "1.78.40"
-  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-1.78.40.tgz#592d07c3721eb0ceb5e03cf7cc3331fec580c4ee"
-  integrity sha512-RHPnfhLlNGNTFs2TzVNWEmahcJoCc77tod5ZdLGs8oOCPeAYf++DFQ24sH+iTvoE7HAhgBTxCwY9+/uxTqHMAA==
+"@types/serverless@^3.12.7":
+  version "3.12.7"
+  resolved "https://registry.yarnpkg.com/@types/serverless/-/serverless-3.12.7.tgz#c6cca8a582c1e199631c6269fc97344984f3e4a9"
+  integrity sha512-WNWTTYIDI31Wtoww0lhiV7x/AB2cvjmxHr/bIYDfsaLJRjJb+yicpafy2NVBMXQ0td8urnk2Eyx1psTmjknU1A==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
