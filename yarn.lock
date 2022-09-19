@@ -611,9 +611,9 @@
     eslint-plugin-sonarjs "^0.10.0"
 
 "@techmmunity/utils@^1.9.0":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@techmmunity/utils/-/utils-1.9.1.tgz#945025ed19ccd6ba4343c8d6d403ae4e05570579"
-  integrity sha512-tvfDi5dJJfLFYQDvSLF4Fv5x21eWTfMqdhDBT/sYZPeEbP/P1pqUyuePZoXTjWcE1uZzTALLT/X9JwxobflB6g==
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/@techmmunity/utils/-/utils-1.10.1.tgz#9450465e14055b610fa8fa3b9cb241587709a79f"
+  integrity sha512-+lqe1LaD+WYpPMB5RKayGGcidVgF+Tw9awcYHW/MmwIO/2i66Jctz6K4JG/8GPS2p8Q/m/eGinYwkXR9OpG1rA==
 
 "@tootallnate/once@1":
   version "1.1.2"
