@@ -39,7 +39,7 @@
 	},
 	"dependencies": {
 		"@techmmunity/utils": "^1.9.0",
-		"@vercel/ncc": "^0.33.1",
+		"@vercel/ncc": "^0.36.1",
 		"jszip": "^3.7.1"
 	},
 	"scripts": {
